@@ -6,17 +6,31 @@ import { sketch } from '../sketches/sketch';
 const IndexPage = () => {
   const canvas = useRef(sketchInstance);
   const [sketchInstance, setSketchInstance] = useState(null);
+  const [dimensions, _setDimensions] = useState(null);
+
+  const setDimensions = () => {
+    const { innerWidth, innerHeight } = window;
+    _setDimensions({ width: innerWidth, height: innerHeight });
+  };
+
+  useEffect(() => {
+    setDimensions();
+
+    window.addEventListener('resize', setDimensions);
+  }, []);
 
   useEffect(() => {
     if (!canvas.current) return;
+    if (!dimensions) return;
 
-    setSketchInstance(new p5(sketch, canvas.current));
-  }, [canvas])
+    canvas.current.innerHTML = '';
+
+    setSketchInstance(new p5(sketch(dimensions), canvas.current));
+  }, [canvas, dimensions]);
 
   return (
     <main>
       <title>Home Page</title>
-      <h1>Hello</h1>
       <div ref={canvas}></div>
     </main>
   );

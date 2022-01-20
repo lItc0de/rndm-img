@@ -1,6 +1,6 @@
-export const sketch = (s) => {
+export const sketch = (dimensions) => (s) => {
   s.setup = () => {
-      s.createCanvas(10, 10);
+      s.createCanvas(dimensions.width, dimensions.height);
   }
 
   s.draw = () => {
