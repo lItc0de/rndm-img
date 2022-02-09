@@ -4,5 +4,5 @@ module.exports = {
     siteUrl: `https://www.yourdomain.tld`,
   },
   pathPrefix: `/rndm-img`,
-  plugins: [],
+  plugins: []
 };
