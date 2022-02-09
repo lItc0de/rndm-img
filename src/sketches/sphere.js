@@ -3,7 +3,7 @@
 
 const setOrigin = (s) => {
   s.translate(-s.width * 0.5, -s.height * 0.5); // setting origin to 0, 0
-}
+};
 
 const mySetup = (s) => {
   setOrigin(s);
@@ -11,7 +11,7 @@ const mySetup = (s) => {
   s.stroke(255);
   // s.noStroke();
   s.lights();
-}
+};
 
 const rotatingSphere = (s) => {
   s.push();
@@ -21,7 +21,7 @@ const rotatingSphere = (s) => {
   s.rotateY(s.millis() / 2000);
   s.sphere(100);
   s.pop();
-}
+};
 
 const mySphere = (s) => {
   s.push();
@@ -68,10 +68,9 @@ const mySphere = (s) => {
   // }
 
   s.pop();
-}
+};
 
 export const sketch = (s) => {
-
   s.setup = () => {
     s.createCanvas(s.windowWidth, s.windowHeight, s.WEBGL);
     mySetup(s);
@@ -81,7 +80,7 @@ export const sketch = (s) => {
 
   s.draw = () => {
     setOrigin(s);
-    s.line(0, 0, s.width, s.height)
+    s.line(0, 0, s.width, s.height);
     rotatingSphere(s);
 
     s.beginShape(s.TRIANGLE_STRIP);

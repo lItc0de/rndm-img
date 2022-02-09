@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 import p5 from 'p5';
 
-import { sketch } from '../sketches/sphere';
+import { sketch } from '../sketches/rndmMovement';
 
 const Sketch = () => {
   const canvas = useRef(null);
@@ -14,9 +14,7 @@ const Sketch = () => {
     new p5(sketch, canvas.current);
   }, [canvas]);
 
-  return (
-    <div ref={canvas}></div>
-  );
+  return <div ref={canvas}></div>;
 };
 
 export default Sketch;
